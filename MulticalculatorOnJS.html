@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+<title>Calculate</title>
+<style>
+  input{
+     width: 25px;
+	 height: 25px;
+  }
+</style>
+</head>
+<body>
+    <form name="forms">
+		 <input type="button" name="b1" id="de1" value="1" />
+		 <input type="button" name="b2" id="de2" value="2" />
+		 <input type="button" name="b3" id="de3" value="3" />
+		  <input type="button" name="b+" id="de+" value="+" /><br />
+		 <input type="button" name="b4" id="de4" value="4" />
+		 <input type="button" name="b5" id="de5" value="5" />
+		 <input type="button" name="b6" id="de6" value="6" />
+		 <input type="button" name="b-" id="de-" value="-" /><br />
+		 <input type="button" name="b7" id="de7" value="7" />
+		 <input type="button" name="b8" id="de8" value="8" />
+		 <input type="button" name="b9" id="de9" value="9" />
+		  <input type="button" name="b*" id="de*" value="*" /><br />
+		 <input type="button" name="b." id="de." value="." />
+		 <input type="button" name="b0" id="de0" value="0" />
+		  <input type="button" name="b=" id="de=" value="=" />
+		   <input type="button" name="b/" id="de/" value="/" />
+
+	</form>
+	<div name="printBlock"><div>
+    <script>
+	var val , val2, number;
+	function printForm(e){
+	 if(val != null && e.target.value == '+' || e.target.value == '-' || e.target.value == '*' || e.target.value == '/' || e.target.value == '=')
+	 {
+	     
+		 if(e.target.value == '=')
+		  { console.log('=');
+		    deal(); 
+			val2 = null;
+			val = null;
+			number = null;
+			return;
+		  }
+	   if(number != null)
+	   {
+	     
+          	  deal(); 
+			  number = e.target.value;
+			  console.log(number);
+			  return;
+	   }
+      number = e.target.value;
+	  console.log(number);
+	   if(val2 == null)
+	   {
+	   	  
+		 otherdeal(e);
+	     return;
+	   }
+	 }
+	    if(val == null)
+		{
+		     
+		  val = e.target.value;
+		}
+		else
+		{
+		   var values = e.target.value;
+		   val += values;
+		}
+         console.log(val);
+		}
+		
+		function otherdeal(e)
+		{
+		  val2 = val;
+		  val = null;
+		}
+		function deal()
+		{
+		  val2 = Number(val2);
+		  val = Number(val);
+		  if(number == '+')
+		  {
+		   val2 = val2 + val;
+		   console.log(val2)
+		  }
+		   if(number == '-')
+		  {
+		    val2 = val2 - val;
+			console.log(val2)
+		  }
+		   if(number == '*')
+		  {
+		    val2 = val2 * val;
+			console.log(val2)
+		  }
+		   if(number == '/')
+		  {
+		    val2 =  val2 / val;
+			console.log(val2)
+		  }
+		  val = null;
+		}
+		document.getElementById("de=").addEventListener("click", printForm);
+		document.getElementById("de1").addEventListener("click", printForm);
+		document.getElementById("de1").addEventListener("click", printForm);
+		document.getElementById("de2").addEventListener("click", printForm);
+		document.getElementById("de3").addEventListener("click", printForm);
+		document.getElementById("de4").addEventListener("click", printForm);
+		document.getElementById("de5").addEventListener("click", printForm);
+		document.getElementById("de6").addEventListener("click", printForm);
+		document.getElementById("de7").addEventListener("click", printForm);
+		document.getElementById("de8").addEventListener("click", printForm);
+		document.getElementById("de9").addEventListener("click", printForm);
+		document.getElementById("de0").addEventListener("click", printForm);
+		document.getElementById("de.").addEventListener("click", printForm);
+		document.getElementById("de-").addEventListener("click", printForm);
+		document.getElementById("de+").addEventListener("click", printForm);
+		document.getElementById("de*").addEventListener("click", printForm);
+		document.getElementById("de/").addEventListener("click", printForm);
+		
+		
+		
+	</script>
+</body>
+</html>
